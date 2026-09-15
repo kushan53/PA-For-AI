@@ -1,0 +1,52 @@
+package arrays_and_searching;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * LeetCode 989: Add to Array-Form of Integer
+ * The array-form of an integer num is an array representing its digits in left to right order.
+ * Given num, the array-form of an integer, and an integer k, return the array-form of num + k.
+ *
+ * Example:
+ * Input: num = [1,2,0,0], k = 34
+ * Output: [1,2,3,4] (1200 + 34 = 1234)
+ *
+ * Time Complexity: O(max(N, log10(K)))
+ * Space Complexity: O(1) auxiliary space (excluding result)
+ */
+public class LC989_AddToArrayFormOfInteger {
+
+    public static List<Integer> addToArrayForm(int[] num, int k) {
+        List<Integer> result = new ArrayList<>();
+        int i = num.length - 1;
+        int carry = k;
+
+        while (i >= 0 || carry > 0) {
+            if (i >= 0) {
+                carry += num[i];
+                i--;
+            }
+            result.add(carry % 10);
+            carry /= 10;
+        }
+
+        Collections.reverse(result);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] num1 = { 1, 2, 0, 0 };
+        int k1 = 34;
+        System.out.println("Input: num = [1, 2, 0, 0], k = 34 -> Result: " + addToArrayForm(num1, k1));
+
+        int[] num2 = { 2, 7, 4 };
+        int k2 = 181;
+        System.out.println("Input: num = [2, 7, 4], k = 181 -> Result: " + addToArrayForm(num2, k2));
+
+        int[] num3 = { 2, 1, 5 };
+        int k3 = 806;
+        System.out.println("Input: num = [2, 1, 5], k = 806 -> Result: " + addToArrayForm(num3, k3));
+    }
+}

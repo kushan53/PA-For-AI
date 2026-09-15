@@ -1,13 +1,5 @@
 package singly_linked_list;
 
-/**
- * LeetCode 19: Remove Nth Node From End of List
- * Given the head of a linked list, remove the nth node from the end of the list and return its head.
- *
- * Algorithm: Two-pointer technique with dummy head node.
- * Time Complexity: O(L) - One Pass
- * Space Complexity: O(1)
- */
 public class LC19_RemoveNthNodeFromEnd {
 
     static class ListNode {
@@ -23,19 +15,16 @@ public class LC19_RemoveNthNodeFromEnd {
         ListNode fast = dummy;
         ListNode slow = dummy;
 
-        // Advances fast pointer so that the gap between fast and slow is n + 1
         for (int i = 0; i <= n; i++) {
             if (fast == null) return head;
             fast = fast.next;
         }
 
-        // Move fast to the end, maintaining the gap
         while (fast != null) {
             fast = fast.next;
             slow = slow.next;
         }
 
-        // Skip the desired node
         slow.next = slow.next.next;
 
         return dummy.next;

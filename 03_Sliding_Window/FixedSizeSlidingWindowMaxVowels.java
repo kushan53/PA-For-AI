@@ -1,12 +1,5 @@
 package sliding_window;
 
-/**
- * Question: Implement the Fixed-Size Sliding Window technique to count
- * the maximum number of vowels in a substring of given length k (LeetCode 1456 style).
- *
- * Time Complexity: O(N)
- * Space Complexity: O(1)
- */
 public class FixedSizeSlidingWindowMaxVowels {
 
     private static boolean isVowel(char c) {
@@ -19,7 +12,6 @@ public class FixedSizeSlidingWindowMaxVowels {
 
         int currentVowelCount = 0;
 
-        // 1. Initial window of size k
         for (int i = 0; i < k; i++) {
             if (isVowel(s.charAt(i))) {
                 currentVowelCount++;
@@ -28,20 +20,18 @@ public class FixedSizeSlidingWindowMaxVowels {
 
         int maxVowelCount = currentVowelCount;
 
-        // 2. Slide window across string
         for (int i = k; i < s.length(); i++) {
-            // Add incoming character
+
             if (isVowel(s.charAt(i))) {
                 currentVowelCount++;
             }
-            // Remove outgoing character
+
             if (isVowel(s.charAt(i - k))) {
                 currentVowelCount--;
             }
 
             maxVowelCount = Math.max(maxVowelCount, currentVowelCount);
-            
-            // Optimization: maximum possible vowels in size k is k
+
             if (maxVowelCount == k) {
                 return maxVowelCount;
             }

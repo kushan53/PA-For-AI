@@ -2,18 +2,6 @@ package sorting_algorithms;
 
 import java.util.Arrays;
 
-/**
- * LeetCode 2418: Sort the People
- * You are given an array of strings names, and an array heights that consists of distinct positive integers.
- * Return names sorted in descending order by the people's heights.
- *
- * Example:
- * Input: names = ["Mary","John","Emma"], heights = [180,165,170]
- * Output: ["Mary","Emma","John"]
- *
- * Time Complexity: O(N log N)
- * Space Complexity: O(N)
- */
 public class LC2418_SortThePeople {
 
     static class Person {
@@ -34,7 +22,6 @@ public class LC2418_SortThePeople {
             people[i] = new Person(names[i], heights[i]);
         }
 
-        // Sort in descending order of height
         Arrays.sort(people, (a, b) -> Integer.compare(b.height, a.height));
 
         String[] sortedNames = new String[n];

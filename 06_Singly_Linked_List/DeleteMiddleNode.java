@@ -1,15 +1,5 @@
 package singly_linked_list;
 
-/**
- * Question: Delete the middle node of a linked list. (LeetCode 2095)
- * If the list contains 2*k nodes, delete the node at index k (0-indexed).
- * If the list has only 1 node, return null.
- *
- * Approach: Fast and Slow pointer with 'prev' pointer.
- *
- * Time Complexity: O(N)
- * Space Complexity: O(1)
- */
 public class DeleteMiddleNode {
 
     static class ListNode {
@@ -20,7 +10,7 @@ public class DeleteMiddleNode {
 
     public static ListNode deleteMiddle(ListNode head) {
         if (head == null || head.next == null) {
-            return null; // Empty or single-node list becomes null
+            return null;
         }
 
         ListNode slow = head;
@@ -33,7 +23,6 @@ public class DeleteMiddleNode {
             fast = fast.next.next;
         }
 
-        // slow is now pointing to middle node; unlink it
         prev.next = slow.next;
 
         return head;
@@ -49,7 +38,7 @@ public class DeleteMiddleNode {
     }
 
     public static void main(String[] args) {
-        // List: 1 -> 3 -> 4 -> 7 -> 1 -> 2 -> 6
+
         ListNode head = new ListNode(1);
         head.next = new ListNode(3);
         head.next.next = new ListNode(4);

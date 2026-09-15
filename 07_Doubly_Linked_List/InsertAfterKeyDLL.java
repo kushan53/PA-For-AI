@@ -1,11 +1,5 @@
 package doubly_linked_list;
 
-/**
- * Question: Insert a new node with value 'newData' after a given key 'key' in a Doubly Linked List.
- *
- * Time Complexity: O(N) where N is the number of nodes in DLL.
- * Space Complexity: O(1)
- */
 public class InsertAfterKeyDLL {
 
     static class DLLNode {
@@ -18,7 +12,6 @@ public class InsertAfterKeyDLL {
     public static boolean insertAfter(DLLNode head, int key, int newData) {
         DLLNode curr = head;
 
-        // Search for the node with key
         while (curr != null && curr.val != key) {
             curr = curr.next;
         }
@@ -28,7 +21,6 @@ public class InsertAfterKeyDLL {
             return false;
         }
 
-        // Create new node and link it after curr
         DLLNode newNode = new DLLNode(newData);
         newNode.next = curr.next;
         newNode.prev = curr;
@@ -52,7 +44,7 @@ public class InsertAfterKeyDLL {
     }
 
     public static void main(String[] args) {
-        // Build DLL: 10 <-> 20 <-> 30
+
         DLLNode head = new DLLNode(10);
         DLLNode n2 = new DLLNode(20);
         DLLNode n3 = new DLLNode(30);

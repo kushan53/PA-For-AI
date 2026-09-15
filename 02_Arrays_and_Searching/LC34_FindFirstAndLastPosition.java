@@ -2,19 +2,6 @@ package arrays_and_searching;
 
 import java.util.Arrays;
 
-/**
- * LeetCode 34: Find First and Last Position of Element in Sorted Array
- * Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
- * If target is not found in the array, return [-1, -1].
- * You must write an algorithm with O(log n) runtime complexity.
- *
- * Example:
- * Input: nums = [5,7,7,8,8,10], target = 8
- * Output: [3,4]
- *
- * Time Complexity: O(log N)
- * Space Complexity: O(1)
- */
 public class LC34_FindFirstAndLastPosition {
 
     public static int[] searchRange(int[] nums, int target) {
@@ -40,9 +27,9 @@ public class LC34_FindFirstAndLastPosition {
             if (nums[mid] == target) {
                 bound = mid;
                 if (isFirst) {
-                    right = mid - 1; // Seek left
+                    right = mid - 1;
                 } else {
-                    left = mid + 1;  // Seek right
+                    left = mid + 1;
                 }
             } else if (nums[mid] < target) {
                 left = mid + 1;

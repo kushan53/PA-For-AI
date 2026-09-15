@@ -2,14 +2,6 @@ package sorting_algorithms;
 
 import java.util.Arrays;
 
-/**
- * LeetCode 75: Sort Colors (Dutch National Flag Problem)
- * Given an array nums with n objects colored red, white, or blue, sort them in-place
- * so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
- * We use integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
- *
- * Must be solved in-place in one pass O(N) time and O(1) space.
- */
 public class LC75_SortColors {
 
     public static void sortColors(int[] nums) {
@@ -21,15 +13,15 @@ public class LC75_SortColors {
 
         while (mid <= high) {
             switch (nums[mid]) {
-                case 0: // Color Red -> Move to left section
+                case 0:
                     swap(nums, low, mid);
                     low++;
                     mid++;
                     break;
-                case 1: // Color White -> Middle section, just advance
+                case 1:
                     mid++;
                     break;
-                case 2: // Color Blue -> Move to right section
+                case 2:
                     swap(nums, mid, high);
                     high--;
                     break;

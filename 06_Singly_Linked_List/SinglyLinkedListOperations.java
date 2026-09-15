@@ -1,14 +1,5 @@
 package singly_linked_list;
 
-/**
- * Question: Implement Singly Linked List operations:
- * 1. Insertion (head, tail)
- * 2. Printing nodes
- * 3. Counting total nodes
- * 4. Linear search for a value
- * 5. Finding the middle element using Fast and Slow pointer (Tortoise and Hare)
- * 6. Iterative reversal of the linked list
- */
 public class SinglyLinkedListOperations {
 
     public static class ListNode {
@@ -23,14 +14,12 @@ public class SinglyLinkedListOperations {
 
     private ListNode head;
 
-    // Insert at head
     public void insertAtHead(int val) {
         ListNode newNode = new ListNode(val);
         newNode.next = head;
         head = newNode;
     }
 
-    // Insert at tail
     public void insertAtTail(int val) {
         ListNode newNode = new ListNode(val);
         if (head == null) {
@@ -44,7 +33,6 @@ public class SinglyLinkedListOperations {
         curr.next = newNode;
     }
 
-    // 1. Print all nodes
     public void printList() {
         ListNode curr = head;
         System.out.print("List: ");
@@ -55,7 +43,6 @@ public class SinglyLinkedListOperations {
         if (head == null) System.out.println("EMPTY");
     }
 
-    // 2. Count total nodes
     public int countNodes() {
         int count = 0;
         ListNode curr = head;
@@ -66,7 +53,6 @@ public class SinglyLinkedListOperations {
         return count;
     }
 
-    // 3. Linear search
     public boolean search(int target) {
         ListNode curr = head;
         int index = 0;
@@ -82,7 +68,6 @@ public class SinglyLinkedListOperations {
         return false;
     }
 
-    // 4. Find middle element using Fast & Slow pointers (O(N) Time, O(1) Space)
     public ListNode findMiddle() {
         if (head == null) return null;
 
@@ -90,23 +75,22 @@ public class SinglyLinkedListOperations {
         ListNode fast = head;
 
         while (fast != null && fast.next != null) {
-            slow = slow.next;       // moves 1 step
-            fast = fast.next.next;  // moves 2 steps
+            slow = slow.next;
+            fast = fast.next.next;
         }
         return slow;
     }
 
-    // 5. Iterative Reversal (O(N) Time, O(1) Space)
     public void reverse() {
         ListNode prev = null;
         ListNode curr = head;
         ListNode next = null;
 
         while (curr != null) {
-            next = curr.next; // store next node
-            curr.next = prev; // reverse pointer
-            prev = curr;      // move prev forward
-            curr = next;      // move curr forward
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
         head = prev;
     }

@@ -1,12 +1,5 @@
 package circular_linked_list;
 
-/**
- * Question: Implement Circular Linked List (CLL) operations:
- * 1. Insertion (End / Beginning)
- * 2. Traversal and Reverse Printing (using recursion)
- * 3. Finding the middle element
- * 4. Solving the famous Josephus Problem (Circle Elimination Game)
- */
 public class CircularLinkedListOperations {
 
     public static class CLLNode {
@@ -21,7 +14,6 @@ public class CircularLinkedListOperations {
 
     private CLLNode head;
 
-    // 1. Insert at end
     public void insertAtEnd(int val) {
         CLLNode newNode = new CLLNode(val);
         if (head == null) {
@@ -38,7 +30,6 @@ public class CircularLinkedListOperations {
         newNode.next = head;
     }
 
-    // 2. Standard Traversal
     public void printList() {
         if (head == null) {
             System.out.println("CLL is EMPTY");
@@ -54,7 +45,6 @@ public class CircularLinkedListOperations {
         System.out.println("(HEAD: " + head.val + ")");
     }
 
-    // 3. Reverse printing using recursion
     public void printReverse() {
         if (head == null) return;
         System.out.print("CLL in Reverse: ");
@@ -69,7 +59,6 @@ public class CircularLinkedListOperations {
         System.out.print(curr.val + " ");
     }
 
-    // 4. Find middle element of CLL
     public CLLNode findMiddle() {
         if (head == null) return null;
 
@@ -83,34 +72,30 @@ public class CircularLinkedListOperations {
         return slow;
     }
 
-    // 5. Josephus Problem: N people in a circle, eliminating every K-th person
     public static int josephusProblem(int n, int k) {
         if (n <= 0 || k <= 0) return -1;
 
-        // Build circular linked list of 1 to n
         CLLNode head = new CLLNode(1);
         CLLNode prev = head;
         for (int i = 2; i <= n; i++) {
             prev.next = new CLLNode(i);
             prev = prev.next;
         }
-        prev.next = head; // Connect to make circular
+        prev.next = head;
 
-        // Eliminate every k-th person
         CLLNode ptr1 = head, ptr2 = head;
         while (ptr1.next != ptr1) {
-            // Count k-1 nodes to find the node before the one to eliminate
+
             for (int count = 1; count < k; count++) {
                 ptr2 = ptr1;
                 ptr1 = ptr1.next;
             }
 
-            // Remove ptr1
             ptr2.next = ptr1.next;
             ptr1 = ptr2.next;
         }
 
-        return ptr1.val; // Survivor
+        return ptr1.val;
     }
 
     public static void main(String[] args) {

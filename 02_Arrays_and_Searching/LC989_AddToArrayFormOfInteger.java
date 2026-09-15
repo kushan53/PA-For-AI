@@ -4,18 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * LeetCode 989: Add to Array-Form of Integer
- * The array-form of an integer num is an array representing its digits in left to right order.
- * Given num, the array-form of an integer, and an integer k, return the array-form of num + k.
- *
- * Example:
- * Input: num = [1,2,0,0], k = 34
- * Output: [1,2,3,4] (1200 + 34 = 1234)
- *
- * Time Complexity: O(max(N, log10(K)))
- * Space Complexity: O(1) auxiliary space (excluding result)
- */
 public class LC989_AddToArrayFormOfInteger {
 
     public static List<Integer> addToArrayForm(int[] num, int k) {

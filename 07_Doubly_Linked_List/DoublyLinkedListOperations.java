@@ -1,12 +1,5 @@
 package doubly_linked_list;
 
-/**
- * Question: Implement Doubly Linked List (DLL) operations:
- * 1. Construction and Node structure (prev, next, val)
- * 2. Forward & Backward Traversal
- * 3. Insertion (at head, at tail, at specific index)
- * 4. Deletion (from head, from tail, at specific index)
- */
 public class DoublyLinkedListOperations {
 
     public static class DLLNode {
@@ -31,7 +24,6 @@ public class DoublyLinkedListOperations {
         this.size = 0;
     }
 
-    // 1. Insert at head
     public void insertAtHead(int val) {
         DLLNode newNode = new DLLNode(val);
         if (head == null) {
@@ -44,7 +36,6 @@ public class DoublyLinkedListOperations {
         size++;
     }
 
-    // 2. Insert at tail
     public void insertAtTail(int val) {
         DLLNode newNode = new DLLNode(val);
         if (tail == null) {
@@ -57,7 +48,6 @@ public class DoublyLinkedListOperations {
         size++;
     }
 
-    // 3. Delete at head
     public void deleteAtHead() {
         if (head == null) return;
         if (head == tail) {
@@ -69,7 +59,6 @@ public class DoublyLinkedListOperations {
         size--;
     }
 
-    // 4. Delete at tail
     public void deleteAtTail() {
         if (tail == null) return;
         if (head == tail) {
@@ -81,7 +70,6 @@ public class DoublyLinkedListOperations {
         size--;
     }
 
-    // Forward Traversal
     public void printForward() {
         System.out.print("Forward:  NULL <-> ");
         DLLNode curr = head;
@@ -92,7 +80,6 @@ public class DoublyLinkedListOperations {
         System.out.println("NULL");
     }
 
-    // Backward Traversal
     public void printBackward() {
         System.out.print("Backward: NULL <-> ");
         DLLNode curr = tail;

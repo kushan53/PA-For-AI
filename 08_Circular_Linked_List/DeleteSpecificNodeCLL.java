@@ -1,18 +1,5 @@
 package circular_linked_list;
 
-/**
- * Question: Delete a specific node (by value) from a Circular Linked List.
- *
- * Edge cases handled:
- * 1. Empty list
- * 2. Only single node present which is to be deleted
- * 3. Head node to be deleted
- * 4. Middle / Tail node to be deleted
- * 5. Node value not present in list
- *
- * Time Complexity: O(N)
- * Space Complexity: O(1)
- */
 public class DeleteSpecificNodeCLL {
 
     static class CLLNode {
@@ -24,7 +11,6 @@ public class DeleteSpecificNodeCLL {
     public static CLLNode deleteNode(CLLNode head, int key) {
         if (head == null) return null;
 
-        // Case 1: If list contains only a single node
         if (head.val == key && head.next == head) {
             return null;
         }
@@ -32,9 +18,8 @@ public class DeleteSpecificNodeCLL {
         CLLNode curr = head;
         CLLNode prev = null;
 
-        // Case 2: Head node is to be deleted
         if (head.val == key) {
-            // Find the last node to update its next pointer
+
             CLLNode last = head;
             while (last.next != head) {
                 last = last.next;
@@ -44,7 +29,6 @@ public class DeleteSpecificNodeCLL {
             return head;
         }
 
-        // Case 3: Middle or last node is to be deleted
         do {
             prev = curr;
             curr = curr.next;
@@ -75,7 +59,7 @@ public class DeleteSpecificNodeCLL {
     }
 
     public static void main(String[] args) {
-        // Build CLL: 10 -> 20 -> 30 -> 40 -> (back to 10)
+
         CLLNode head = new CLLNode(10);
         CLLNode n2 = new CLLNode(20);
         CLLNode n3 = new CLLNode(30);

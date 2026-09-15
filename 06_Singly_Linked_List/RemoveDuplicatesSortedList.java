@@ -1,13 +1,5 @@
 package singly_linked_list;
 
-/**
- * Question: Remove duplicates from a sorted linked list.
- * Given the head of a sorted linked list, delete all duplicates such that
- * each element appears only once.
- *
- * Time Complexity: O(N)
- * Space Complexity: O(1)
- */
 public class RemoveDuplicatesSortedList {
 
     static class ListNode {
@@ -21,7 +13,7 @@ public class RemoveDuplicatesSortedList {
 
         while (curr != null && curr.next != null) {
             if (curr.val == curr.next.val) {
-                // Skip the duplicate node
+
                 curr.next = curr.next.next;
             } else {
                 curr = curr.next;
@@ -40,7 +32,7 @@ public class RemoveDuplicatesSortedList {
     }
 
     public static void main(String[] args) {
-        // List: 1 -> 1 -> 2 -> 3 -> 3
+
         ListNode head = new ListNode(1);
         head.next = new ListNode(1);
         head.next.next = new ListNode(2);

@@ -1,14 +1,5 @@
 package singly_linked_list;
 
-/**
- * LeetCode 1721: Swapping Nodes in a Linked List
- * You are given the head of a linked list, and an integer k.
- * Return the head of the linked list after swapping the values of the kth node
- * from the beginning and the kth node from the end (the list is 1-indexed).
- *
- * Time Complexity: O(N) (Single Pass)
- * Space Complexity: O(1)
- */
 public class LC1721_SwappingNodesInLinkedList {
 
     static class ListNode {
@@ -21,12 +12,11 @@ public class LC1721_SwappingNodesInLinkedList {
         if (head == null) return null;
 
         ListNode firstK = head;
-        // Move firstK pointer to kth node from start
+
         for (int i = 1; i < k; i++) {
             firstK = firstK.next;
         }
 
-        // Set up two pointers to locate kth node from end
         ListNode curr = firstK;
         ListNode secondK = head;
 
@@ -35,7 +25,6 @@ public class LC1721_SwappingNodesInLinkedList {
             secondK = secondK.next;
         }
 
-        // Swap the values of the two nodes
         int temp = firstK.val;
         firstK.val = secondK.val;
         secondK.val = temp;
@@ -52,7 +41,7 @@ public class LC1721_SwappingNodesInLinkedList {
     }
 
     public static void main(String[] args) {
-        // 1 -> 2 -> 3 -> 4 -> 5, k = 2 (swap 2 and 4)
+
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);

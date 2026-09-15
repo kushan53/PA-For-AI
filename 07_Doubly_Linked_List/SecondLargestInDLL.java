@@ -1,12 +1,5 @@
 package doubly_linked_list;
 
-/**
- * Question: Find the second largest element in a Doubly Linked List without sorting.
- *
- * Algorithm: Single Pass traversal keeping track of 'largest' and 'secondLargest'.
- * Time Complexity: O(N)
- * Space Complexity: O(1)
- */
 public class SecondLargestInDLL {
 
     static class DLLNode {
@@ -53,7 +46,7 @@ public class SecondLargestInDLL {
     }
 
     public static void main(String[] args) {
-        // DLL: 12 <-> 35 <-> 1 <-> 10 <-> 34 <-> 1
+
         DLLNode head = new DLLNode(12);
         DLLNode n2 = new DLLNode(35);
         DLLNode n3 = new DLLNode(1);

@@ -1,15 +1,5 @@
 package circular_linked_list;
 
-/**
- * Question: Count total nodes in a Circular Linked List.
- *
- * Algorithm:
- * 1. If head is null, count is 0.
- * 2. Start from head, iterate using do-while until current reaches head again.
- *
- * Time Complexity: O(N)
- * Space Complexity: O(1)
- */
 public class CountNodesCLL {
 
     static class CLLNode {
@@ -33,7 +23,7 @@ public class CountNodesCLL {
     }
 
     public static void main(String[] args) {
-        // Build CLL: 10 -> 20 -> 30 -> 40 -> (back to 10)
+
         CLLNode head = new CLLNode(10);
         CLLNode n2 = new CLLNode(20);
         CLLNode n3 = new CLLNode(30);

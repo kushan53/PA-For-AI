@@ -1,17 +1,5 @@
 package singly_linked_list;
 
-/**
- * LeetCode 707: Design Linked List
- * Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
- *
- * Implement the MyLinkedList class:
- * - MyLinkedList() Initializes the MyLinkedList object.
- * - int get(int index) Get the value of the index-th node in the linked list. If the index is invalid, return -1.
- * - void addAtHead(int val) Add a node of value val before the first element of the linked list.
- * - void addAtTail(int val) Append a node of value val as the last element of the linked list.
- * - void addAtIndex(int index, int val) Add a node of value val before the index-th node in the linked list.
- * - void deleteAtIndex(int index) Delete the index-th node in the linked list, if the index is valid.
- */
 public class LC707_DesignLinkedList {
 
     static class MyLinkedList {
@@ -104,12 +92,12 @@ public class LC707_DesignLinkedList {
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.addAtHead(1);
         myLinkedList.addAtTail(3);
-        myLinkedList.addAtIndex(1, 2); // linked list becomes 1->2->3
+        myLinkedList.addAtIndex(1, 2);
         myLinkedList.print();
 
-        System.out.println("Element at index 1: " + myLinkedList.get(1)); // returns 2
-        myLinkedList.deleteAtIndex(1);  // now the linked list is 1->3
+        System.out.println("Element at index 1: " + myLinkedList.get(1));
+        myLinkedList.deleteAtIndex(1);
         myLinkedList.print();
-        System.out.println("Element at index 1: " + myLinkedList.get(1)); // returns 3
+        System.out.println("Element at index 1: " + myLinkedList.get(1));
     }
 }

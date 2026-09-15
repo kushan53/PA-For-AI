@@ -1,16 +1,5 @@
 package singly_linked_list;
 
-/**
- * Question: Find the N-th node from the end of a linked list in a single pass.
- *
- * Approach: Two-Pointer Technique
- * 1. Move first pointer 'fast' N steps ahead.
- * 2. Move both 'fast' and 'slow' one step at a time until 'fast' reaches the end.
- * 3. The 'slow' pointer will then point directly to the N-th node from the end.
- *
- * Time Complexity: O(L) where L is list length (Single Pass)
- * Space Complexity: O(1)
- */
 public class NthNodeFromEndOfList {
 
     static class ListNode {
@@ -25,16 +14,14 @@ public class NthNodeFromEndOfList {
         ListNode fast = head;
         ListNode slow = head;
 
-        // Move fast pointer n steps ahead
         for (int i = 0; i < n; i++) {
             if (fast == null) {
-                // n is greater than the total number of nodes
+
                 return null;
             }
             fast = fast.next;
         }
 
-        // Move both pointers until fast reaches null
         while (fast != null) {
             fast = fast.next;
             slow = slow.next;
@@ -52,7 +39,7 @@ public class NthNodeFromEndOfList {
     }
 
     public static void main(String[] args) {
-        // Build list: 10 -> 20 -> 30 -> 40 -> 50
+
         ListNode head = new ListNode(10);
         head.next = new ListNode(20);
         head.next.next = new ListNode(30);

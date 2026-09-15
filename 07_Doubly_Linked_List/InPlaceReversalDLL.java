@@ -1,15 +1,5 @@
 package doubly_linked_list;
 
-/**
- * Question: In-place reversal of a Doubly Linked List.
- *
- * Algorithm:
- * Swap `prev` and `next` pointers for all nodes in the DLL.
- * Update the head pointer to the last processed node (which was original tail).
- *
- * Time Complexity: O(N)
- * Space Complexity: O(1)
- */
 public class InPlaceReversalDLL {
 
     static class DLLNode {
@@ -25,18 +15,14 @@ public class InPlaceReversalDLL {
         DLLNode curr = head;
         DLLNode temp = null;
 
-        // Swap next and prev for all nodes of DLL
         while (curr != null) {
             temp = curr.prev;
             curr.prev = curr.next;
             curr.next = temp;
 
-            // Move to next node (which is now curr.prev due to swap)
             curr = curr.prev;
         }
 
-        // After the loop, temp points to the prev of the last processed node
-        // so temp.prev is the new head
         if (temp != null) {
             head = temp.prev;
         }
@@ -55,7 +41,7 @@ public class InPlaceReversalDLL {
     }
 
     public static void main(String[] args) {
-        // Build DLL: 1 <-> 2 <-> 3 <-> 4 <-> 5
+
         DLLNode head = new DLLNode(1);
         DLLNode n2 = new DLLNode(2);
         DLLNode n3 = new DLLNode(3);

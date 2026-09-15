@@ -2,18 +2,8 @@ package arrays_and_searching;
 
 import java.util.Arrays;
 
-/**
- * Question: Modify binary search to find the first and last occurrences of an
- * element in a sorted array and calculate its total frequency.
- *
- * Time Complexity: O(log N)
- * Space Complexity: O(1)
- */
 public class FirstAndLastOccurrenceFrequency {
 
-    /**
-     * Finds the first (leftmost) occurrence of target using Binary Search.
-     */
     public static int findFirstOccurrence(int[] arr, int target) {
         int left = 0;
         int right = arr.length - 1;
@@ -24,7 +14,7 @@ public class FirstAndLastOccurrenceFrequency {
 
             if (arr[mid] == target) {
                 firstIndex = mid;
-                right = mid - 1; // Keep searching in left half for earlier occurrence
+                right = mid - 1;
             } else if (arr[mid] < target) {
                 left = mid + 1;
             } else {
@@ -34,9 +24,6 @@ public class FirstAndLastOccurrenceFrequency {
         return firstIndex;
     }
 
-    /**
-     * Finds the last (rightmost) occurrence of target using Binary Search.
-     */
     public static int findLastOccurrence(int[] arr, int target) {
         int left = 0;
         int right = arr.length - 1;
@@ -47,7 +34,7 @@ public class FirstAndLastOccurrenceFrequency {
 
             if (arr[mid] == target) {
                 lastIndex = mid;
-                left = mid + 1; // Keep searching in right half for later occurrence
+                left = mid + 1;
             } else if (arr[mid] < target) {
                 left = mid + 1;
             } else {
@@ -57,13 +44,10 @@ public class FirstAndLastOccurrenceFrequency {
         return lastIndex;
     }
 
-    /**
-     * Calculates the total frequency of target in O(log N) time.
-     */
     public static int countFrequency(int[] arr, int target) {
         int first = findFirstOccurrence(arr, target);
         if (first == -1) {
-            return 0; // Element not present
+            return 0;
         }
         int last = findLastOccurrence(arr, target);
         return last - first + 1;

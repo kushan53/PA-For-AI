@@ -1,12 +1,5 @@
 package circular_linked_list;
 
-/**
- * Question: Search for an element in a Circular Linked List.
- * Returns the 0-based index if found, or -1 if not found.
- *
- * Time Complexity: O(N)
- * Space Complexity: O(1)
- */
 public class SearchElementCLL {
 
     static class CLLNode {
@@ -29,11 +22,11 @@ public class SearchElementCLL {
             index++;
         } while (curr != head);
 
-        return -1; // Target not found
+        return -1;
     }
 
     public static void main(String[] args) {
-        // Build CLL: 15 -> 25 -> 35 -> 45 -> (back to 15)
+
         CLLNode head = new CLLNode(15);
         CLLNode n2 = new CLLNode(25);
         CLLNode n3 = new CLLNode(35);

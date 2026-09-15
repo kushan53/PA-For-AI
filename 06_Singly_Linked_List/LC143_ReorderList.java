@@ -1,21 +1,5 @@
 package singly_linked_list;
 
-/**
- * LeetCode 143: Reorder List
- * You are given the head of a singly linked-list. The list can be represented as:
- * L0 → L1 → … → Ln - 1 → Ln
- * Reorder the list to be on the following form:
- * L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
- * You may not modify the values in the list's nodes. Only nodes themselves may be changed.
- *
- * Algorithm:
- * 1. Find middle of linked list using Fast & Slow pointers.
- * 2. Reverse the second half of the list.
- * 3. Merge the two halves alternately.
- *
- * Time Complexity: O(N)
- * Space Complexity: O(1) Auxiliary Space
- */
 public class LC143_ReorderList {
 
     static class ListNode {
@@ -27,7 +11,6 @@ public class LC143_ReorderList {
     public static void reorderList(ListNode head) {
         if (head == null || head.next == null) return;
 
-        // 1. Find middle
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
@@ -35,9 +18,8 @@ public class LC143_ReorderList {
             fast = fast.next.next;
         }
 
-        // 2. Reverse second half
         ListNode second = slow.next;
-        slow.next = null; // Split list into two halves
+        slow.next = null;
         ListNode prev = null;
         while (second != null) {
             ListNode temp = second.next;
@@ -46,9 +28,8 @@ public class LC143_ReorderList {
             second = temp;
         }
 
-        // 3. Merge two halves
         ListNode first = head;
-        second = prev; // Head of reversed second half
+        second = prev;
 
         while (second != null) {
             ListNode tmp1 = first.next;
@@ -71,7 +52,7 @@ public class LC143_ReorderList {
     }
 
     public static void main(String[] args) {
-        // List: 1 -> 2 -> 3 -> 4 -> 5 -> Output: 1 -> 5 -> 2 -> 4 -> 3
+
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);

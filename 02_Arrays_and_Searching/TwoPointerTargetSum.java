@@ -4,18 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Question: Implement the two-pointer approach to find pairs of elements in a
- * sorted array that sum up to a specific target value.
- *
- * Time Complexity: O(N) where N is the length of the sorted array.
- * Space Complexity: O(1) auxiliary space (excluding result list).
- */
 public class TwoPointerTargetSum {
 
-    /**
-     * Finds all unique pairs in a sorted array that sum up to target.
-     */
     public static List<int[]> findPairsWithTargetSum(int[] arr, int target) {
         List<int[]> result = new ArrayList<>();
         int left = 0;
@@ -26,22 +16,20 @@ public class TwoPointerTargetSum {
 
             if (currentSum == target) {
                 result.add(new int[] { arr[left], arr[right] });
-                
-                // Move left pointer and avoid duplicates
+
                 int leftVal = arr[left];
                 while (left < right && arr[left] == leftVal) {
                     left++;
                 }
 
-                // Move right pointer and avoid duplicates
                 int rightVal = arr[right];
                 while (left < right && arr[right] == rightVal) {
                     right--;
                 }
             } else if (currentSum < target) {
-                left++; // Increase sum by moving left pointer right
+                left++;
             } else {
-                right--; // Decrease sum by moving right pointer left
+                right--;
             }
         }
         return result;

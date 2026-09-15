@@ -1,17 +1,5 @@
 package circular_linked_list;
 
-/**
- * Question: Insert a new node at the beginning of a Circular Linked List.
- *
- * Approach:
- * 1. Create a new node.
- * 2. If list is empty, point newNode.next to itself and return as head.
- * 3. Otherwise, traverse to the last node (whose .next == head).
- * 4. Point lastNode.next to newNode, newNode.next to head, and update head = newNode.
- *
- * Time Complexity: O(N) (or O(1) if maintaining a tail pointer)
- * Space Complexity: O(1)
- */
 public class InsertAtBeginningCLL {
 
     static class CLLNode {
@@ -28,16 +16,14 @@ public class InsertAtBeginningCLL {
             return newNode;
         }
 
-        // Find the last node
         CLLNode last = head;
         while (last.next != head) {
             last = last.next;
         }
 
-        // Update links
         newNode.next = head;
         last.next = newNode;
-        head = newNode; // Make newNode the new head
+        head = newNode;
 
         return head;
     }

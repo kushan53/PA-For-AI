@@ -2,57 +2,38 @@ package arrays_and_searching;
 
 import java.util.Arrays;
 
-/**
- * Question: Implement Linear and Binary Search algorithms in Java.
- * Includes both Iterative and Recursive implementations of Binary Search.
- *
- * Complexities:
- * Linear Search: Time: O(N), Space: O(1)
- * Binary Search (Iterative): Time: O(log N), Space: O(1)
- * Binary Search (Recursive): Time: O(log N), Space: O(log N) due to recursion stack
- */
 public class LinearAndBinarySearch {
 
-    /**
-     * Linear Search: Sequentially checks each element.
-     * Works on both sorted and unsorted arrays.
-     */
     public static int linearSearch(int[] arr, int target) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == target) {
-                return i; // Found target at index i
+                return i;
             }
         }
-        return -1; // Not found
+        return -1;
     }
 
-    /**
-     * Binary Search (Iterative): Requires array to be sorted.
-     */
     public static int binarySearchIterative(int[] arr, int target) {
         int left = 0;
         int right = arr.length - 1;
 
         while (left <= right) {
-            int mid = left + (right - left) / 2; // Prevents potential integer overflow
+            int mid = left + (right - left) / 2;
 
             if (arr[mid] == target) {
                 return mid;
             } else if (arr[mid] < target) {
-                left = mid + 1; // Search right half
+                left = mid + 1;
             } else {
-                right = mid - 1; // Search left half
+                right = mid - 1;
             }
         }
-        return -1; // Not found
+        return -1;
     }
 
-    /**
-     * Binary Search (Recursive) helper.
-     */
     public static int binarySearchRecursive(int[] arr, int target, int left, int right) {
         if (left > right) {
-            return -1; // Base case: search space exhausted
+            return -1;
         }
 
         int mid = left + (right - left) / 2;
